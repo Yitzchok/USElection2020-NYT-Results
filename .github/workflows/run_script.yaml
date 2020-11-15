@@ -3,7 +3,7 @@ name: Run R script
 on: 
   # push:
   schedule:
-  - cron: '0 */24 * * *'
+  - cron: '0 */1 * * *'
 
 jobs:
   render:
