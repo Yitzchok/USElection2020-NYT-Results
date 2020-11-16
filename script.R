@@ -19,7 +19,7 @@ state_strings <- c("alaska", "texas", "minnesota", "michigan", "west-virginia",
   "connecticut", "utah", "delaware", "district-of-columbia")
 
 
-get_nyt_data <- function(x, time_start, race) {
+get_nyt_data <- function(x, save_directory_name, race) {
   
   if(race == "special"){
     url_string <- "senate/0/special.json"
@@ -45,12 +45,12 @@ get_nyt_data <- function(x, time_start, race) {
   
   res <- jsonlite::fromJSON(json_url)
   
-  if(!dir.exists(glue::glue("data/{time_start}/{folder_2}"))){
-    dir.create(glue::glue("data/{time_start}/{folder_2}/json"), recursive = T)
-    dir.create(glue::glue("data/{time_start}/{folder_2}/csv"), recursive = T)
+  if(!dir.exists(glue::glue("data/{save_directory_name}/{folder_2}"))){
+    dir.create(glue::glue("data/{save_directory_name}/{folder_2}/json"), recursive = T)
+    dir.create(glue::glue("data/{save_directory_name}/{folder_2}/csv"), recursive = T)
   }
   
-  jsonlite::write_json(res, path = glue::glue("data/{time_start}/{folder_2}/json/{x}.json"))
+  jsonlite::write_json(res, path = glue::glue("data/{save_directory_name}/{folder_2}/json/{x}.json"))
   
   cleaned <- res[["data"]][["races"]][["counties"]][[1]]  %>%
     rowwise() %>%
@@ -62,7 +62,7 @@ get_nyt_data <- function(x, time_start, race) {
     tidyr::unnest_wider(results_absentee, names_sep = "_")  %>%
     janitor::clean_names()
   
-  data.table::fwrite(cleaned, file = glue::glue("data/{time_start}/{folder_2}/csv/{x}.csv"))
+  data.table::fwrite(cleaned, file = glue::glue("data/{save_directory_name}/{folder_2}/csv/{x}.csv"))
   
   return(cleaned)
   
@@ -71,7 +71,7 @@ get_nyt_data <- function(x, time_start, race) {
 get_nyt_data <- possibly(get_nyt_data, otherwise = NULL, quiet = F)
 
 
-time_start <- Sys.time() %>% as.character() %>% str_replace_all(":", "-")
+save_directory_name <- "latest_all"
 
 
 ###### --- Presidential ###########
@@ -79,14 +79,14 @@ time_start <- Sys.time() %>% as.character() %>% str_replace_all(":", "-")
 print("Get Presidential Data")
 
 election_results_presidential <- state_strings %>%
-  map_dfr(~{get_nyt_data(.x, time_start, "presidential")})
+  map_dfr(~{get_nyt_data(.x, save_directory_name, "presidential")})
 
 
-data.table::fwrite(election_results_presidential, file = glue::glue("data/{time_start}/presidential/presidential.csv"))
+data.table::fwrite(election_results_presidential, file = glue::glue("data/{save_directory_name}/presidential/presidential.csv"))
 
 presidential_json <- read_json("https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/national-map-page/national/president.json")
 
-jsonlite::write_json(presidential_json, path = glue::glue("data/{time_start}/presidential/presidential.json"))
+jsonlite::write_json(presidential_json, path = glue::glue("data/{save_directory_name}/presidential/presidential.json"))
 
 
 ###### --- Senate Special ###########
@@ -94,10 +94,10 @@ jsonlite::write_json(presidential_json, path = glue::glue("data/{time_start}/pre
 print("Get Senate Special Elections Data")
 
 election_results_special <- c("georgia", "arizona") %>%
-  map_dfr(~{get_nyt_data(.x, time_start, "special")})
+  map_dfr(~{get_nyt_data(.x, save_directory_name, "special")})
 
 
-data.table::fwrite(election_results_special, file = glue::glue("data/{time_start}/senate/special/special.csv"))
+data.table::fwrite(election_results_special, file = glue::glue("data/{save_directory_name}/senate/special/special.csv"))
 
 ###### --- Senate ###########
 
@@ -112,14 +112,14 @@ senate_state_strings <- c("alabama", "alaska", "arkansas", "colorado", "delaware
                     "wyoming")
 
 election_results_senate <- senate_state_strings %>%
-  map_dfr(~{get_nyt_data(.x, time_start, "senate")})
+  map_dfr(~{get_nyt_data(.x, save_directory_name, "senate")})
 
 
-data.table::fwrite(election_results_senate, file = glue::glue("data/{time_start}/senate/senate.csv"))
+data.table::fwrite(election_results_senate, file = glue::glue("data/{save_directory_name}/senate/senate.csv"))
 
 senate_json <- read_json("https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/national-map-page/national/senate.json")
 
-jsonlite::write_json(senate_json, path = glue::glue("data/{time_start}/senate/senate.json"))
+jsonlite::write_json(senate_json, path = glue::glue("data/{save_directory_name}/senate/senate.json"))
 
 
 ###### --- House ###########
@@ -130,11 +130,11 @@ print("Get House Data")
 house_json <- read_json("https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/national-map-page/national/house.json")
 
 
-if(!dir.exists(glue::glue("data/{time_start}/house"))){
-  dir.create(glue::glue("data/{time_start}/house/races"), recursive = T)
+if(!dir.exists(glue::glue("data/{save_directory_name}/house"))){
+  dir.create(glue::glue("data/{save_directory_name}/house/races"), recursive = T)
 }
 
-jsonlite::write_json(house_json, path = glue::glue("data/{time_start}/house/house.json"))
+jsonlite::write_json(house_json, path = glue::glue("data/{save_directory_name}/house/house.json"))
 
 get_house_data <- function(x) {
   x %>% .[["counties"]] %>% 
@@ -158,7 +158,7 @@ house_dat <- house_json[["data"]][["races"]] %>%
       
       print(unique(race$race_slug_race))
       
-      data.table::fwrite(race, file = glue::glue("data/{time_start}/house/races/{unique(race$race_slug_race)}.csv"))
+      data.table::fwrite(race, file = glue::glue("data/{save_directory_name}/house/races/{unique(race$race_slug_race)}.csv"))
       
       return(race)      
     }
@@ -166,7 +166,7 @@ house_dat <- house_json[["data"]][["races"]] %>%
     
   }) 
 
-data.table::fwrite(house_dat, file = glue::glue("data/{time_start}/house/house.csv"))
+data.table::fwrite(house_dat, file = glue::glue("data/{save_directory_name}/house/house.csv"))
 
 
 
@@ -189,4 +189,3 @@ data.table::fwrite(election_results_presidential, file = glue::glue("data/latest
 ## save house results
 jsonlite::write_json(house_json, path = glue::glue("data/latest/house.json"))
 data.table::fwrite(house_dat, file = glue::glue("data/latest/house.csv"))
-
