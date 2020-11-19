@@ -1,6 +1,6 @@
 fips,name,votes,absentee_votes,reporting,precincts,absentee_method,eevp,tot_exp_vote,eevp_value,eevp_display,eevp_source,turnout_stage,absentee_count_progress,absentee_outstanding,absentee_max_ballots,provisional_outstanding,provisional_count_progress,results_reedj,results_watersa,results_absentee_reedj,results_absentee_watersa,last_updated,leader_margin_value,leader_margin_display,leader_margin_name_display,leader_party_id,state,retrieved_time
-44001,Bristol,27319,0,16,17,,,,,"",edison,,,,,,,19106,8213,0,0,2020-11-16T15:47:46Z,39.87335,D+40,Reed +40,democrat,rhode-island,2020-11-19T01:30:27.387322Z
-44003,Kent,90023,0,69,70,,,,,"",edison,,,,,,,54768,35255,0,0,2020-11-16T15:48:03Z,21.67557,D+22,Reed +22,democrat,rhode-island,2020-11-19T01:30:27.387322Z
-44005,Newport,44106,0,31,31,,,,,"",edison,,,,,,,30579,13527,0,0,2020-11-16T15:47:53Z,38.66141,D+39,Reed +39,democrat,rhode-island,2020-11-19T01:30:27.387322Z
-44007,Providence,257354,0,237,259,,,,,"",edison,,,,,,,175767,81587,0,0,2020-11-16T15:47:51Z,36.59551,D+37,Reed +37,democrat,rhode-island,2020-11-19T01:30:27.387322Z
-44009,Washington,73376,0,44,44,,,,,"",edison,,,,,,,47187,26189,0,0,2020-11-16T15:47:51Z,28.61699,D+29,Reed +29,democrat,rhode-island,2020-11-19T01:30:27.387322Z
+44001,Bristol,27319,0,16,17,,,,,"",edison,,,,,,,19106,8213,0,0,2020-11-16T15:47:46Z,39.87335,D+40,Reed +40,democrat,rhode-island,2020-11-19T02:27:28.495510Z
+44003,Kent,90023,0,69,70,,,,,"",edison,,,,,,,54768,35255,0,0,2020-11-16T15:48:03Z,21.67557,D+22,Reed +22,democrat,rhode-island,2020-11-19T02:27:28.495510Z
+44005,Newport,44106,0,31,31,,,,,"",edison,,,,,,,30579,13527,0,0,2020-11-16T15:47:53Z,38.66141,D+39,Reed +39,democrat,rhode-island,2020-11-19T02:27:28.495510Z
+44007,Providence,257354,0,237,259,,,,,"",edison,,,,,,,175767,81587,0,0,2020-11-16T15:47:51Z,36.59551,D+37,Reed +37,democrat,rhode-island,2020-11-19T02:27:28.495510Z
+44009,Washington,73376,0,44,44,,,,,"",edison,,,,,,,47187,26189,0,0,2020-11-16T15:47:51Z,28.61699,D+29,Reed +29,democrat,rhode-island,2020-11-19T02:27:28.495510Z
