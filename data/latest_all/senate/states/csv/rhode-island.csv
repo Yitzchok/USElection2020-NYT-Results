@@ -1,6 +1,6 @@
 fips,name,votes,absentee_votes,reporting,precincts,absentee_method,eevp,tot_exp_vote,eevp_value,eevp_display,eevp_source,turnout_stage,absentee_count_progress,absentee_outstanding,absentee_max_ballots,provisional_outstanding,provisional_count_progress,results_reedj,results_watersa,results_absentee_reedj,results_absentee_watersa,last_updated,leader_margin_value,leader_margin_display,leader_margin_name_display,leader_party_id,leader_key,state,retrieved_time
-44001,Bristol,27319,0,17,17,,,,,"",edison,,,,,,,19106,8213,0,0,2020-12-11T16:14:56Z,39.87335,D+40,Reed +40,democrat,reedj,rhode-island,2021-05-05T21:30:23.482837Z
-44003,Kent,90025,0,70,70,,,,,"",edison,,,,,,,54770,35255,0,0,2020-12-11T16:20:08Z,21.67731,D+22,Reed +22,democrat,reedj,rhode-island,2021-05-05T21:30:23.482837Z
-44005,Newport,44107,0,31,31,,,,,"",edison,,,,,,,30580,13527,0,0,2020-12-11T16:16:45Z,38.6628,D+39,Reed +39,democrat,reedj,rhode-island,2021-05-05T21:30:23.482837Z
-44007,Providence,257373,0,259,259,,,,,"",edison,,,,,,,175783,81590,0,0,2020-12-11T16:16:11Z,36.59786,D+37,Reed +37,democrat,reedj,rhode-island,2021-05-05T21:30:23.482837Z
-44009,Washington,73377,0,44,44,,,,,"",edison,,,,,,,47188,26189,0,0,2020-12-11T16:16:16Z,28.61796,D+29,Reed +29,democrat,reedj,rhode-island,2021-05-05T21:30:23.482837Z
+44001,Bristol,27319,0,17,17,,,,,"",edison,,,,,,,19106,8213,0,0,2020-12-11T16:14:56Z,39.87335,D+40,Reed +40,democrat,reedj,rhode-island,2021-05-05T22:35:57.409662Z
+44003,Kent,90025,0,70,70,,,,,"",edison,,,,,,,54770,35255,0,0,2020-12-11T16:20:08Z,21.67731,D+22,Reed +22,democrat,reedj,rhode-island,2021-05-05T22:35:57.409662Z
+44005,Newport,44107,0,31,31,,,,,"",edison,,,,,,,30580,13527,0,0,2020-12-11T16:16:45Z,38.6628,D+39,Reed +39,democrat,reedj,rhode-island,2021-05-05T22:35:57.409662Z
+44007,Providence,257373,0,259,259,,,,,"",edison,,,,,,,175783,81590,0,0,2020-12-11T16:16:11Z,36.59786,D+37,Reed +37,democrat,reedj,rhode-island,2021-05-05T22:35:57.409662Z
+44009,Washington,73377,0,44,44,,,,,"",edison,,,,,,,47188,26189,0,0,2020-12-11T16:16:16Z,28.61796,D+29,Reed +29,democrat,reedj,rhode-island,2021-05-05T22:35:57.409662Z
